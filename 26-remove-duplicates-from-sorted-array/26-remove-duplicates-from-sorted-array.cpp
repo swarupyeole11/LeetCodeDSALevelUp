@@ -5,6 +5,20 @@ public:
         
         //APPROACH 1
         
+        int n = nums.size();
+        set<int> a;
+        for(int i=0;i<n;i++)
+            a.insert(nums[i]);
+            
+        int ans = a.size();
+        int i=0;
+        for(auto x:a){
+            nums[i]=x;
+            i++;
+        }
+       
+    return ans;
+        
         //APPROACH 2 : FOLLOWING POINTER
         int n = nums.size();
         int j=0;
