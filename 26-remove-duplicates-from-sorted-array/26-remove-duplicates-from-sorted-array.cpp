@@ -6,7 +6,7 @@ public:
 //       {
 //          return nums.size();
 //       }
-      int n  = nums.size();
+//      int n  = nums.size();
         
 //      for(int i=0;i<n;i++)
 //      {
@@ -47,11 +47,24 @@ public:
       
 //         return count;
         
-        int count = 0;
-for(int i = 1; i < n; i++){
-    if(nums[i] == nums[i-1]) count++;
-    else nums[i-count] = nums[i];
-}
-return n-count;
+//         int count = 0;
+// for(int i = 1; i < n; i++){
+//     if(nums[i] == nums[i-1]) count++;
+//     else nums[i-count] = nums[i];
+// }
+// return n-count;
+        
+    int n = nums.size();
+        int j=0;
+        for(int i=1;i<n;i++)
+        {
+            if(nums[i]!=nums[j])
+            {
+                j++;
+                nums[j]=nums[i];
+            }
+        }
+         
+       return j+1; 
     }
 };
