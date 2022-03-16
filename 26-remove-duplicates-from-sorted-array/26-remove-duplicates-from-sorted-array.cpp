@@ -1,6 +1,26 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
+        
+        
+        //APPROACH 1
+        
+        //APPROACH 2 : FOLLOWING POINTER
+        int n = nums.size();
+        int j=0;
+        for(int i=1;i<n;i++)
+        {
+            if(nums[i]!=nums[j])
+            {
+                j++;
+                nums[j]=nums[i];
+            }
+        }
+         
+       return j+1; 
+    }
+        
+        
      
 //       if(nums.size()<=1)
 //       {
@@ -54,17 +74,5 @@ public:
 // }
 // return n-count;
         
-    int n = nums.size();
-        int j=0;
-        for(int i=1;i<n;i++)
-        {
-            if(nums[i]!=nums[j])
-            {
-                j++;
-                nums[j]=nums[i];
-            }
-        }
-         
-       return j+1; 
-    }
+    
 };
