@@ -31,6 +31,13 @@ public:
 
 // O(n) and O(1) solution
 
+        int n = nums.size();
+        int i = k%n;
+        reverse(nums.begin(),nums.end());
+        reverse(nums.begin(),nums.begin()+i);
+        reverse(nums.begin()+i,nums.end());
+        
+
 
 
 
