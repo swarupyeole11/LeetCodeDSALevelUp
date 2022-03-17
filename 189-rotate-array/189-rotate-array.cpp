@@ -1,5 +1,22 @@
 class Solution {
 public:
+    
+ //The Soultion that gives TLE  O(n2) O(1)
+
+       while(k--)
+       {    
+           int x = nums[n-1];
+           for(int i=n-1;i>0;i--)
+           {  
+              // cout<<"hola Manny"<<" ";
+              nums[i]=nums[i-1]; 
+           }
+           nums[0]=x;
+       }   
+    
+    
+    
+// The O(n) O(n) solution  // Concept -> (i+k)%n   
     void rotate(vector<int>& nums, int k) {
         
         vector<int> arr = nums;
@@ -11,3 +28,10 @@ public:
         }
     }
 };
+
+// O(n) and O(1) solution
+
+
+
+
+        
