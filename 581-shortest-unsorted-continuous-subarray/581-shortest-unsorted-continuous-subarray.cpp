@@ -6,30 +6,24 @@ public:
       vector<int> arr=nums;
       sort(arr.begin(),arr.end());
       int n=arr.size();
-      int x,y;
+      int x=n,y=-1;
+      int flag=0;
     
       for(int i=0;i<n;i++)
       {
           if(arr[i]!=nums[i])
-          {
-               x=i;
-              break;
+          {    
+               flag=1;
+               x=min(i,x);
+               y=max(i,y);
           }
       }
         
-      for(int j=n-1;j>0;j--)
-      {
-          if(arr[j]!=nums[j])
-          {
-               y=j;
-              break;
-          }
-      }
-      
-      if(x-y==n)
+      cout<<"x: "<<x<<" "<<"y: "<<y;
+      if(flag==0)
         return 0;
         
-      return   y-x+1;
+      return y-x+1;
     }
     
   
