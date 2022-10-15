@@ -20,7 +20,7 @@ private :
             Q.pop();
             //pushing all the adjacent elements of the current node to the queue if they are not visited or are not water nodes and marking them as visited once pushed 
             
-            for(int i=0;i<4;i++)
+            for(int i=0; i<4; i++)
             {
                      int nrow = row+rows[i];
                      int ncol = col+cols[i];
@@ -34,6 +34,31 @@ private :
             }
             
         }
+    }
+    
+    void dfs(int row, int col,  vector<vector<char>>& grid, vector<vector<int>> &vis)
+    {
+      
+        int n = grid.size();
+        int m = grid[0].size();
+        
+        int rows[4] = {0,0,-1,1};
+        int cols[4] = {-1,1,0,0};
+    
+        vis[row][col]=1;
+        
+        for(int i=0; i<4; i++)
+        {
+            int nrow = row+rows[i];
+            int ncol = col+cols[i];
+            if(nrow>=0 && nrow<n && ncol>=0 && ncol<m 
+             && grid[row][col]=='1'&& !vis[nrow][ncol])
+            {
+                dfs(nrow,ncol,grid,vis);
+            }
+        }
+            
+        
     }
     
 public:
@@ -50,7 +75,7 @@ public:
                   if(grid[i][j]=='1' && !vis[i][j])
                   {
                       cnt++;
-                      bfs(i,j,grid,vis);
+                      dfs(i,j,grid,vis);
                   }
             }
         }
