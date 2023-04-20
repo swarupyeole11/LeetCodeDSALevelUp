@@ -11,90 +11,88 @@ class Solution{
     //Function to return a list containing the union of the two arrays. 
     vector<int> findUnion(int arr1[], int arr2[], int n, int m)
     {
-        set<int> uset;
-        for(int i=0;i<n;i++)
-        {
-            uset.insert(arr1[i]);
-        }
-        
-        for (int j=0;j<m;j++)
-        {
-            uset.insert(arr2[j]);
-        }
-        
-        vector<int> ans;
-        
-        for(auto x : uset)
-        {
-            ans.push_back(x);
-        }
-        
-        
-        return ans;
-        
-        
-        // vector<int> ans;
-        // int i=0;
-        // int j=0;
-        
-        // while(i< n&& j<m)
+        // set<int> uset;
+        // for(int i=0;i<n;i++)
         // {
-        //     while(i<n-1 && arr1[i]==arr1[i+1])
-        //     {
-        //         i++;
-        //     }
-            
-        //     while(i<m-1 && arr2[j]==arr2[j+1])
-        //     {
-        //         j++;
-        //     }
-            
-            
-            
-        //     i++;
-        //     j++;
-            
-        //     // if(arr1[i] > arr2[j])
-        //     // {
-        //     //     ans.push_back(arr2[j]);
-        //     //     j++;
-        //     // }
-            
-        //     // else if (arr1[i]<arr2[j])
-        //     // {
-        //     //     ans.push_back(arr1[i]);
-        //     //     i++;
-        //     // }
-            
-        //     // else
-        //     // {
-        //     //     ans.push_back(arr2[j++]);
-        //     //     i++;
-        //     // }
+        //     uset.insert(arr1[i]);
         // }
         
-        // // while(i<n)
-        // // {
-        // //     while(i<n-1 && arr1[i]==arr1[i+1])
-        // //     {
-        // //         i++;
-        // //     }
-            
-        // //     ans.push_back(arr1[i++]);
-        // // }
+        // for (int j=0;j<m;j++)
+        // {
+        //     uset.insert(arr2[j]);
+        // }
         
+        // vector<int> ans;
         
-        // //   while(j<m)
-        // // {
-        // //     while(j<m-1 && arr2[j]==arr2[j+1])
-        // //     {
-        // //         j++;
-        // //     }
-            
-        // //     ans.push_back(arr2[j++]);
-        // // }
+        // for(auto x : uset)
+        // {
+        //     ans.push_back(x);
+        // }
+        
         
         // return ans;
+        
+        
+        vector<int> ans;
+        int i=0;
+        int j=0;
+        
+        while(i< n&& j<m)
+        {
+            while(i<n-1 && arr1[i]==arr1[i+1])
+            {
+                i++;
+            }
+            
+            while(j<m-1 && arr2[j]==arr2[j+1])
+            {
+                j++;
+            }
+            
+            
+            
+            if(arr1[i] > arr2[j])
+            {
+                ans.push_back(arr2[j]);
+                j++;
+            }
+            
+            
+            else if (arr1[i]<arr2[j])
+            {
+                ans.push_back(arr1[i]);
+                i++;
+            }
+            
+            else
+            {
+                ans.push_back(arr2[j++]);
+                i++;
+            }
+        }
+        
+        while(i<n)
+        {
+            while(i<n-1 && arr1[i]==arr1[i+1])
+            {
+                i++;
+            }
+            
+            ans.push_back(arr1[i++]);
+        }
+        
+        
+          while(j<m)
+        {
+            while(j<m-1 && arr2[j]==arr2[j+1])
+            {
+                j++;
+            }
+            
+            ans.push_back(arr2[j++]);
+        }
+        
+        return ans;
         
         
         
