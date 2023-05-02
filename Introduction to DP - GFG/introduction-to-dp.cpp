@@ -36,26 +36,26 @@ class Solution {
     
     long long int bottomUp(int n) {
         
-        // //step1 intlize the dp array
-        // vector<long long int> dp(n+1,-1);
         
-        // //step2 intalize the base values
-        // dp[0]=0;
-        // dp[1]=1;
-        
-        // //step3 loop over the rest of the values
-        // for(int i=2;i<=n;i++)
-        // {
-        //     dp[i]=dp[i-1]+dp[i-2];
-        // }
-        
-        // //step4 return the orginal value 
-        // return dp[n];
-        
-        
-        
+        int mod = 1000000000 + 7;
+         
+        //step1 intlize the dp array
         vector<long long int> dp(n+1,-1);
-        return fx(n,dp);
+        
+        //step2 intalize the base values
+        dp[0]=0;
+        dp[1]=1;
+        
+        //step3 loop over the rest of the values
+        for(int i=2;i<=n;i++)
+        {
+            dp[i]=(dp[i-1]+dp[i-2])%mod;
+        }
+        
+        //step4 return the orginal value 
+        return dp[n]%mod;
+        
+        
     }
 };
 
