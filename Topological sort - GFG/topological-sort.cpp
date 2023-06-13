@@ -15,7 +15,7 @@ class Solution
         {
             if(!vis[it])
             {
-                vis[it]=1;
+                // vis[it]=1;
                 dfs(it,adj,vis,st);
                 
             }
@@ -30,6 +30,7 @@ class Solution
     
     void bfs_kahn( vector<int> adj[], vector<int> &ans, int V)
     {
+      // when your node starts from 0 always declare the array as of V size and when the graph starts from 1 declare itof size 1 because the array is 0 indexed
        vector<int> indegree(V,0);
        queue<int> Q;
        
@@ -40,6 +41,13 @@ class Solution
                indegree[it]++;
            }
        }
+       
+       
+        /* just to check whether indegrees were printed correctly */
+    //   for(auto it : indegree)
+    //   {
+    //       cout<<it<<" ";
+    //   }
        
        for(int i=0; i<V; i++)
        {
@@ -54,7 +62,6 @@ class Solution
            int node = Q.front();
            Q.pop();
            ans.push_back(node);
-           
            for(auto it : adj[node])
            {
                indegree[it]--;
@@ -73,7 +80,7 @@ class Solution
 	{
 	    
 	  // for dfs algorithm 
-/*	    vector<int> ans;
+	    vector<int> ans;
 	    vector<int> vis(V,0);
 	    stack<int> st;
 	    
@@ -91,12 +98,14 @@ class Solution
 	        st.pop();
 	        ans.push_back(x);
 	    }
-*/	    
+	    
 	    
 	  // for bfs algorithm 
 	  
-	  vector<int> ans;
+/*	  vector<int> ans;
 	  bfs_kahn(adj,ans,V);
+*/	  
+	  
 	
 	  return ans;
 	    
