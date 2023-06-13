@@ -17,7 +17,7 @@ class Solution {
        {
            if(!vis[it])
            {
-               vis[it]=1;
+            //   vis[it]=1;
                dfs(it,adj,vis,ans);
            }
        }
