@@ -4,11 +4,61 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
+    
+  private:
+  
+   bool dfs(int node, vector<int> adj[], vector<int>&vis, vector<int> &pathvis)
+   {
+       vis[node]=1;
+       pathvis[node]=1;
+       
+       for(auto it : adj[node])
+       {
+           if(!vis[it])
+           {
+               if(dfs(it,adj,vis,pathvis)==true)
+                 return true;
+           }
+           // i.e if the element is visted and is in the same path definetly there is a cycle
+           else if(pathvis[it]==1)
+           {
+               return true;
+           }
+       }
+       
+       pathvis[node]=0;
+      
+       
+       return false;
+   }
+  
   public:
     // Function to detect cycle in a directed graph.
     bool isCyclic(int V, vector<int> adj[]) {
       
-      vector<int> indegree(V,0);
+       vector<int> vis(V,0);
+       vector<int> pathvis(V,0);
+       
+       for(int i=0; i<V; i++)
+       {
+           if(!vis[i])
+           {
+               // for any vertices for a non connected graph a cycle exist then the graph is cyclic
+               if(dfs(i,adj,vis,pathvis)==true)
+               {
+                   return true;
+               }
+           }
+       }
+ 
+    
+       return false;
+     
+    
+    }
+};
+
+/*      vector<int> indegree(V,0);
       queue<int> Q;
       
       for(int i=0; i<V; i++)
@@ -53,9 +103,8 @@ class Solution {
      return V==count?false:true;
      
       
-    
-    }
-};
+*/
+
 
 //{ Driver Code Starts.
 
