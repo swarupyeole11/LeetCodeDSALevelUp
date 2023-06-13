@@ -16,6 +16,8 @@ class Solution {
        {
            if(!vis[it])
            {
+               vis[it]=1;
+               pathvis[it]=1;
                if(dfs(it,adj,vis,pathvis)==true)
                  return true;
            }
