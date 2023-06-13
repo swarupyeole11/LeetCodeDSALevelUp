@@ -34,21 +34,77 @@ class Solution {
              }
          }
      }
+     
+     bool checkCycleDfs(int node , vector<int> adj[], vector<int> &vis, int parent)
+     {
+         vis[node]=1;
+         
+         for(auto it: adj[node])
+         {
+             if(!vis[it])
+             {
+                 if(checkCycleDfs(it,adj,vis,node)==true)
+                 {
+                     return true;
+                 }
+             }
+             
+              else if(it!=parent)
+                 {
+                     return true;
+                 }
+             
+             
+         }
+         
+         return false;
+         
+     }
+     
+     
+     
   
   public:
     // Function to detect cycle in an undirected graph.
     bool isCycle(int V, vector<int> adj[]) {
+
+
         vector<int> vis(V,0);
+
+// BFS code
+/*        
+        cyclecount=0;
         for(int i=0; i<V; i++)
         {
             if(!vis[i])
             {
                 if(checkCycleBfs(i,adj,vis)==true)
                 {
+                    cyclecount++;
                     return true;
                 }
             }
         }
+*/
+
+
+// DFS code
+
+
+       for(int i=0; i<V; i++)
+       {
+           if(!vis[i])
+           {
+               if(checkCycleDfs(i,adj,vis,-1)==true)
+               {
+                   return true;
+               }
+           }
+       }
+       
+
+        //Code to count number of cycles in an undirecred graph
+        // cout<<cyclecount<<" ";
         
         
         return false;
