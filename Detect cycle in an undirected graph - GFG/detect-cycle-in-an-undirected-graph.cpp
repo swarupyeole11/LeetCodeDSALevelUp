@@ -33,6 +33,8 @@ class Solution {
                 }
              }
          }
+         
+         return false;
      }
      
      bool checkCycleDfs(int node , vector<int> adj[], vector<int> &vis, int parent)
@@ -49,10 +51,10 @@ class Solution {
                  }
              }
              
-              else if(it!=parent)
-                 {
-                     return true;
-                 }
+             else if(it!=parent)
+            {
+                return true;
+            }
              
              
          }
@@ -72,8 +74,9 @@ class Solution {
         vector<int> vis(V,0);
 
 // BFS code
-/*        
-        cyclecount=0;
+        
+        int cyclecount=0;
+        
         for(int i=0; i<V; i++)
         {
             if(!vis[i])
@@ -85,12 +88,12 @@ class Solution {
                 }
             }
         }
-*/
+
 
 
 // DFS code
 
-
+/*
        for(int i=0; i<V; i++)
        {
            if(!vis[i])
@@ -102,7 +105,7 @@ class Solution {
            }
        }
        
-
+*/
         //Code to count number of cycles in an undirecred graph
         // cout<<cyclecount<<" ";
         
