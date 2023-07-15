@@ -23,7 +23,7 @@ class Solution{
         
         else
         {
-            return ((N%mod)*(power(N,R-1)%mod))%mod;
+            return (N%mod*power(N,R-1)%mod)%mod;
         }
         
     }
